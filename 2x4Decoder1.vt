@@ -1,0 +1,16 @@
+module testbench;
+ reg en;
+ reg a,b;
+ wire [3:0]D;
+ decoder_2x4 dut(en,a,b,D);
+ initial begin
+ $monitor("en=%b,a=%b,b=%b,D=%b", en,a,b,D);
+ en = 1'b0;
+ a=1'b0; b=1'b0;
+ en = 1'b1;
+ end
+ begin
+ always #50 a=~a;
+ always #100 b=~b;
+ end
+ endmodule
