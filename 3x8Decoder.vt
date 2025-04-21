@@ -1,0 +1,29 @@
+ module testbench;
+ reg[2:0]in;
+ reg En;
+ wire[7:0]y;
+ decoder_3x8
+ dut(.in(in), .En(En), .y(y));
+ initial begin
+ En=1'b1;
+ #100
+ in=3'b000;
+ #100
+ in=3'b001;
+ #100
+ in=3'b010;
+ #100
+ in=3'b011;
+ #100
+ in=3'b100;
+ #100
+ in=3'b101;
+ #100
+ in=3'b110;
+ #100
+ in=3'b111;
+ #100;
+ $monitor("in=%b,
+ En=%b,y=%b" ,in,En,y);
+ end
+ endmodule
